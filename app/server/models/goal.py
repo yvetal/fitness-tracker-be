@@ -6,4 +6,5 @@ class GoalSchema(BaseModel):
     currentHeight: int = Field(...)
     goal: int = Field(...)
     difficulty: str = Field(...)
+    userid: str = Field(...)
 

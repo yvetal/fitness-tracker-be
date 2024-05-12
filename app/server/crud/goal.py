@@ -2,9 +2,9 @@ from ..database import database
 
 collection = database.get_collection('goals')
 
-async def retrieve_all():
+async def retrieve_for_user(userid):
     items = []
-    async for item in collection.find():
+    async for item in collection.find({'userid': userid}):
         item['_id'] = str(item['_id'])
         items.append(item)
     return items

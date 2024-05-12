@@ -13,8 +13,8 @@ async def add_data(data: GoalSchema = Body(...)):
     return ResponseModel(new_item, "Goal added successfully.")
 
 @router.get("/", response_description="Goals retrieved")
-async def get_all():    
-    items = await crud.retrieve_all()
+async def get_for_user(userid: str):    
+    items = await crud.retrieve_for_user(userid)
     if items:
         return ResponseModel(items, "Goal data retrieved successfully")
     return ResponseModel(items, "Empty list returned")

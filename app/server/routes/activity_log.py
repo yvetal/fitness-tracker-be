@@ -13,8 +13,8 @@ async def add_data(data: ActivityLogSchema = Body(...)):
     return ResponseModel(new_item, "Activity Log added successfully.")
 
 @router.get("/", response_description="Activity Logs retrieved")
-async def get_all():    
-    items = await crud.retrieve_all()
+async def get_for_user(userid: str):    
+    items = await crud.retrieve_for_user(userid)
     if items:
         return ResponseModel(items, "Activity Log data retrieved successfully")
     return ResponseModel(items, "Empty list returned")

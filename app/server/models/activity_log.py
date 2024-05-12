@@ -6,4 +6,5 @@ class ActivityLogSchema(BaseModel):
     calories: int = Field(...)
     intensity: int = Field(...)
     duration: int = Field(...)
+    userid: str = Field(...)
 
