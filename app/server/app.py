@@ -4,6 +4,7 @@ from server.routes.activity_log import router as ActivityLogRouter
 from server.routes.goal import router as GoalRouter
 from server.routes.user import router as UserRouter
 from server.routes.devices import router as DeviceRouter
+from server.routes.meal import router as MealRouter
 
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -19,7 +20,8 @@ app.add_middleware(
 app.include_router(ActivityLogRouter, tags=["ActivityLog"], prefix="/activity-logs")
 app.include_router(GoalRouter, tags=["Goal"], prefix="/goals")
 app.include_router(UserRouter, tags=["User"], prefix="/users")
-app.include_router(DeviceRouter, tags=["Devices"], prefix="/device")
+app.include_router(DeviceRouter, tags=["Device"], prefix="/devices")
+app.include_router(MealRouter, tags=["Meal"], prefix="/meals")
 
 
 @app.get("/", tags=["Root"])
